@@ -55,10 +55,10 @@ def get_api_answer(current_timestamp):
     timestamp = current_timestamp or int(time.time())
     params = {'from_date': timestamp}
     response = requests.get(ENDPOINT, headers=HEADERS, params=params)
-    if response.status_code is not HTTPStatus.OK:
+    if response.status_code != HTTPStatus.OK:
         logger.error(
             f'Сбой в работе программы: эндпоинт {ENDPOINT} недоступен.'
-            'Код ответа API: {response.status_code}'
+            f'Код ответа API: {response.status_code}'
         )
         raise Exception('Ошибка API ^_^')
     return response.json()
