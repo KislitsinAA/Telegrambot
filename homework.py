@@ -125,7 +125,7 @@ def main():
                 bot.send_message(
                     TELEGRAM_CHAT_ID,
                     message,
-                    replymarkup=button
+                    reply_markup=button
                 )
             last_message = message
             time.sleep(RETRY_TIME)
